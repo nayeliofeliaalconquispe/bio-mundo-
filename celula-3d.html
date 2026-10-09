@@ -1,0 +1,292 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Célula eucariota animal 3D | BIO MUNDO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .viewer-shell {
+        background: #0d1512;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      #viewer3d {
+        width: 100%;
+        height: 70vh;
+        min-height: 420px;
+        display: block;
+        cursor: grab;
+      }
+      #viewer3d:active {
+        cursor: grabbing;
+      }
+      .viewer-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        padding: 14px;
+        background: #101c18;
+        color: #cfe3d8;
+        font-size: 0.85rem;
+      }
+      .viewer-bar span {
+        opacity: 0.75;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="BIO MUNDO inicio">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <strong>BIO MUNDO</strong>
+            <small>Biblioteca digital</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Navegación principal">
+          <a href="index.html#niveles">Niveles</a>
+          <a href="index.html#galeria">3D &amp; temas</a>
+          <a href="index.html#videos">Videos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Recursos visuales · Modelo 3D</p>
+            <h2>Célula eucariota animal</h2>
+          </div>
+
+          <div class="viewer-shell">
+            <canvas id="viewer3d"></canvas>
+            <div class="viewer-bar">
+              <span id="viewerMsg">Cargando modelo 3D…</span>
+            </div>
+          </div>
+
+          <div class="feature-grid" style="margin-top: 32px">
+            <article class="feature-card">
+              <div class="icon-box icon-blue">🔬</div>
+              <h3>Membrana y citoplasma</h3>
+              <p>La membrana regula el intercambio y el citoplasma mantiene el medio interno.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon-box icon-purple">🧬</div>
+              <h3>Núcleo y nucleolo</h3>
+              <p>Guarda el ADN y organiza la división y la expresión genética.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon-box icon-green">🏭</div>
+              <h3>Aparato de Golgi</h3>
+              <p>Modifica, ordena y envasa proteínas y lípidos de la célula.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon-box icon-orange">⚙️</div>
+              <h3>Centríolos</h3>
+              <p>Participan en la división celular organizando los microtúbulos.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <h3>BIO MUNDO</h3>
+          <p>Biblioteca digital de biología para estudiantes de secundaria.</p>
+        </div>
+        <div>
+          <h4>Proyecto del Bachillerato Técnico Humanístico</h4>
+          <p style="margin:2px 0; font-size:0.85rem; line-height:1.2;">&copy; 2026 BIOMUNDO.</p>
+          <p style="margin:2px 0; font-size:0.85rem; line-height:1.2;">
+            Todos los derechos reservados U.E. Técnico Humanístico Japón B.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+      import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
+
+      const MODEL_BASES = [
+        "imagenes%203D/eve3d-celula-eucariota-animal/",
+        "imagenes 3D/eve3d-celula-eucariota-animal/",
+      ];
+
+      const canvas = document.getElementById("viewer3d");
+      const msg = document.getElementById("viewerMsg");
+
+      function tryLoadModel(baseIndex = 0) {
+        const base = MODEL_BASES[baseIndex];
+
+        new MTLLoader().setPath(base).load(
+          "celula_animal.mtl",
+          (materials) => {
+            materials.preload();
+            const objLoader = new OBJLoader()
+              .setMaterials(materials)
+              .setPath(base);
+
+            objLoader.load(
+              "celula_animal.obj",
+              (object) => {
+                object.traverse((node) => {
+                  if (!node.isMesh) return;
+                  node.material.side = THREE.DoubleSide;
+                  node.geometry.computeVertexNormals();
+                });
+                object.rotation.x = 0.35;
+
+                const center = new THREE.Box3()
+                  .setFromObject(object)
+                  .getCenter(new THREE.Vector3());
+                object.position.sub(center);
+
+                const sphere = new THREE.Sphere();
+                new THREE.Box3()
+                  .setFromObject(object)
+                  .getBoundingSphere(sphere);
+
+                const wrapper = new THREE.Group();
+                wrapper.add(object);
+                scene.add(wrapper);
+
+                const radius = sphere.radius || 1;
+                const scale = Math.min(2.2, 10 / radius);
+                object.scale.setScalar(scale);
+
+                const fitDistance =
+                  radius / Math.sin((camera.fov * Math.PI) / 360);
+
+                camera.position.set(
+                  fitDistance * 0.55,
+                  fitDistance * 0.35,
+                  fitDistance * 0.95
+                );
+                camera.near = fitDistance / 100;
+                camera.far = fitDistance * 100;
+                camera.updateProjectionMatrix();
+
+                controls.target.set(0, 0, 0);
+                controls.minDistance = radius * 1.2;
+                controls.maxDistance = radius * 12;
+                controls.update();
+
+                msg.textContent =
+                  "Arrastra para girar · rueda para acercar · modelo interactivo";
+              },
+              undefined,
+              () => {
+                const nextBase = modelBasesHaveNext(baseIndex);
+                if (nextBase) {
+                  tryLoadModel(nextBase);
+                  return;
+                }
+                msg.textContent = "No se pudo cargar el modelo 3D de la célula.";
+              }
+            );
+          },
+          undefined,
+          () => {
+            const nextBase = modelBasesHaveNext(baseIndex);
+            if (nextBase) {
+              tryLoadModel(nextBase);
+              return;
+            }
+            msg.textContent = "No se pudo cargar el modelo 3D de la célula.";
+          }
+        );
+      }
+
+      function modelBasesHaveNext(index) {
+        return index < MODEL_BASES.length - 1 ? index + 1 : 0;
+      }
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.15;
+      renderer.setClearColor(0xeaf4ef, 1);
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xeaf4ef);
+
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        canvas.clientWidth / canvas.clientHeight,
+        0.1,
+        5000
+      );
+      camera.position.set(120, 80, 220);
+
+      const controls = new OrbitControls(camera, canvas);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.08;
+
+      const hemi = new THREE.HemisphereLight(0xffffff, 0x2a473c, 1.6);
+      scene.add(hemi);
+
+      const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+      scene.add(ambient);
+
+      const key = new THREE.DirectionalLight(0xffffff, 1.8);
+      key.position.set(150, 200, 300);
+      scene.add(key);
+
+      const fill = new THREE.DirectionalLight(0xbfe9ff, 1.2);
+      fill.position.set(-180, 120, -90);
+      scene.add(fill);
+
+      const rim = new THREE.DirectionalLight(0x9be6c3, 0.9);
+      rim.position.set(-200, -80, -150);
+      scene.add(rim);
+
+      tryLoadModel();
+
+      function resize() {
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      window.addEventListener("resize", resize);
+
+      (function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      })();
+    </script>
+  </body>
+</html>

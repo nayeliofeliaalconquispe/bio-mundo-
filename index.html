@@ -1,0 +1,641 @@
+﻿﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BIO MUNDO es una biblioteca digital de biología para estudiantes de secundaria, con contenidos de 1° a 6° de secundaria."
+    />
+    <title>BIO MUNDO | Biblioteca digital de biología</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#inicio" aria-label="BIO MUNDO inicio">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <strong>BIO MUNDO</strong>
+            <small>Biblioteca digital</small>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Abrir menú</span>
+        </button>
+
+        <nav id="main-nav" class="site-nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#niveles">Niveles</a>
+          <a href="#cursos">Cursos</a>
+          <a href="#galeria">3D &amp; temas</a>
+          <a href="#videos">Videos</a>
+          <a href="#notas" id="nav-notas" data-abrir-notas>Notas</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Ministerio de Educación · Nivel secundario</p>
+            <h1> biología con creatividad y profundidad.</h1>
+            <p class="hero-text">
+              BIO MUNDO es una biblioteca digital diseñada para estudiantes de
+              1.º a 6.º de secundaria, con temas de biología organizados,
+              visuales y fáciles de consultar.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#niveles">Explorar niveles</a>
+              <a class="btn btn-secondary" href="#videos">Ver videos</a>
+            </div>
+
+            <ul class="hero-stats" aria-label="Estadísticas del proyecto">
+              <li>
+                <strong>6</strong>
+                <span>Niveles</span>
+              </li>
+              <li>
+                <strong>+30</strong>
+                <span>Temas</span>
+              </li>
+              <li>
+                <strong>3D</strong>
+                <span>Visuales</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Ilustración de biología">
+            <div class="visual-card main-card">
+              <img
+                src="imagenes/imagen-1.jpeg"
+                alt="Representación de un ADN y una célula"
+              />
+            </div>
+            <div class="floating-tag tag-green">Células</div>
+            <div class="floating-tag tag-yellow">Ecosistemas</div>
+            <div class="floating-tag tag-purple">ADN</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Temas destacados</p>
+            <h2>Una biblioteca de contenidos para explorar la vida</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article
+              class="feature-card is-clickable"
+              tabindex="0"
+              role="button"
+              data-ficha="genetica"
+            >
+              <div class="icon-box icon-green">🧬</div>
+              <h3>Genética y herencia</h3>
+              <p>ADN, ARN, reproducción y transmisión de características.</p>
+              <span class="card-hint">Ver ficha completa →</span>
+            </article>
+
+            <article
+              class="feature-card is-clickable"
+              tabindex="0"
+              role="button"
+              data-ficha="celulas"
+            >
+              <div class="icon-box icon-blue">🧫</div>
+              <h3>Células y funciones</h3>
+              <p>Estructura celular, organelos y procesos vitales del cuerpo.</p>
+              <span class="card-hint">Ver ficha completa →</span>
+            </article>
+
+            <article
+              class="feature-card is-clickable"
+              tabindex="0"
+              role="button"
+              data-ficha="ecosistemas"
+            >
+              <div class="icon-box icon-orange">🌿</div>
+              <h3>Ecosistemas</h3>
+              <p>Biodiversidad, cadenas alimentarias, equilibrio y ambiente.</p>
+              <span class="card-hint">Ver ficha completa →</span>
+            </article>
+
+            <article
+              class="feature-card is-clickable"
+              tabindex="0"
+              role="button"
+              data-ficha="salud"
+            >
+              <div class="icon-box icon-pink">🧠</div>
+              <h3>Salud y bienestar</h3>
+              <p>Sistemas del cuerpo humano, prevención y salud integral.</p>
+              <span class="card-hint">Ver ficha completa →</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="niveles" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Plan de estudios</p>
+            <h2>Contenido por nivel escolar</h2>
+          </div>
+
+          <div class="level-controls" aria-label="Selector de niveles">
+            <button class="level-btn is-active" type="button" data-level="1">1°</button>
+            <button class="level-btn" type="button" data-level="2">2°</button>
+            <button class="level-btn" type="button" data-level="3">3°</button>
+            <button class="level-btn" type="button" data-level="4">4°</button>
+            <button class="level-btn" type="button" data-level="5">5°</button>
+            <button class="level-btn" type="button" data-level="6">6°</button>
+          </div>
+
+          <div class="level-panels">
+            <article class="level-panel is-active" data-panel="1">
+              <div class="level-header">
+                <span class="badge badge-green">1.º de Secundaria</span>
+                <h3>Fundamentos de la vida y el universo</h3>
+              </div>
+              <ul class="topic-list">
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="astronomia-universo">Astronomía: el universo y sus componentes <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="sistema-solar">El sistema solar y los planetas <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="biologia-ciencia">La biología como ciencia de la vida <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="caracteristicas-vida">Características de la vida y niveles de organización <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="bioelementos-biomoleculas">Bioelementos y biomoléculas <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="celula-unidad">La célula como unidad anatómica, funcional y genética <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="sexualidad-humana">Sexualidad humana integral y holística <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="quimica-vida">La química en armonía con la vida y la Madre Tierra <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="matematica-ciencias">Matemática aplicada a las ciencias naturales <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="suelos-ecologia">Estudio de los suelos y ecología <span>→</span></button></li>
+              </ul>
+            </article>
+
+            <article class="level-panel" data-panel="2">
+              <div class="level-header">
+                <span class="badge badge-blue">2.º de Secundaria</span>
+                <h3>Biología, química y organización del entorno</h3>
+              </div>
+              <ul class="topic-list">
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="sexualidad-humana-2">Sexualidad humana integral y holística <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="transformaciones-quimicas">Transformaciones químicas: mezcla y sustancia <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="elementos-quimicos">Elementos químicos de la naturaleza <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="astronomia-naturaleza">Incidencia de la astronomía en la naturaleza <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="estructura-solar">Estructura y órbitas del sistema solar <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="sol-luna">El Sol, la Luna, fases, eclipses y mareas <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="astrobiologia">Astrobiología y fenómenos astronómicos <span>→</span></button></li>
+              </ul>
+            </article>
+
+            <article class="level-panel" data-panel="3">
+              <div class="level-header">
+                <span class="badge badge-yellow">3.º de Secundaria</span>
+                <h3>Organización, nutrición y cuidado del cuerpo</h3>
+              </div>
+              <ul class="topic-list">
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="organizacion-sistemas">Armonía en la organización de los sistemas orgánicos <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="tejidos-animales">Tejidos animales: epitelial, conectivo, muscular y nervioso <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="nutricion-digestion">Función de nutrición y digestión en animales <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="aparato-digestivo">Anatomía del aparato digestivo humano <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="fenomenos-ciclicos">Fenómenos cíclicos de la Madre Tierra <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="geografia-biogeografia">La geografía física y la biogeografía <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="estructura-tierra">Estructura de la Madre Tierra: litósfera, atmósfera e hidrósfera <span>→</span></button></li>
+              </ul>
+            </article>
+
+            <article class="level-panel" data-panel="4">
+              <div class="level-header">
+                <span class="badge badge-orange">4.º de Secundaria</span>
+                <h3>Complejidad del organismo humano y salud comunitaria</h3>
+              </div>
+              <ul class="topic-list">
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="locomotor">Sistema locomotor: tipos de esqueletos y huesos humanos <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="artrologia">Artrología y tipos de articulaciones <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="muscular">Sistema muscular: miología y fisiología <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="biomoleculas-vida">Biomoléculas como base de la vida <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="glandular-hormonal">Sistema glandular y hormonal <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="sistema-inmunitario">Defensa del organismo contra enfermedades <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="microbiologia">Microbiología y su importancia <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="enfermedades-endemicas">Prevención y control de enfermedades endémicas de Bolivia <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="biodiversidad-bolivia">Biodiversidad en Bolivia y protección ambiental <span>→</span></button></li>
+              </ul>
+            </article>
+
+            <article class="level-panel" data-panel="5">
+              <div class="level-header">
+                <span class="badge badge-red">5.º de Secundaria</span>
+                <h3>Unidad celular, reproducción y plantas</h3>
+              </div>
+              <ul class="topic-list">
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="origen-vida-celular">Origen de la vida y teoría celular <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="membrana-celular">Membrana celular, citoplasma, citoesqueleto y núcleo <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="adn-arn">Componentes del ADN y ARN <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="reproduccion-celular">Reproducción celular: mitosis, meiosis y gametogénesis <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="expresion-genica">Expresión génica y salud reproductiva <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="sexualidad-integral-5">Sexualidad humana integral, holística y despatriarcalizadora <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="estructura-plantas">Estructura y procesos vitales en las plantas <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="recursos-madre-tierra">Uso sustentable de los recursos de la Madre Tierra <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="regiones-ecologicas">Regiones ecológicas de Bolivia <span>→</span></button></li>
+              </ul>
+            </article>
+
+            <article class="level-panel" data-panel="6">
+              <div class="level-header">
+                <span class="badge badge-purple">6.º de Secundaria</span>
+                <h3>Genética, salud, evolución y medio ambiente</h3>
+              </div>
+              <ul class="topic-list">
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="genetica-herencia">Genética: patrones de herencia y variabilidad genética <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="herencia-sexo">Herencia ligada al sexo, árbol genealógico y alteraciones genéticas <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="salud-enfermedad">Salud y enfermedad: prevención de enfermedades transmisibles <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="no-transmisibles">Enfermedades no transmisibles y primeros auxilios <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="reino-animal">Diversidad del reino animal en la Madre Tierra <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="ecologia">Ecología: niveles de organización, ecosistemas y comunidades <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="ingenieria-genetica">Ingeniería genética y biotecnología <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="evolucion-seres-vivos">Evolución de los seres vivos y eras geológicas <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="gestion-ambiental">Gestión ambiental y mitigación de desastres naturales <span>→</span></button></li>
+                <li class="is-clickable"><button class="topic-item topic-trigger" type="button" data-topic="leyes-madre-tierra">Leyes de la Madre Tierra y cuidado ambiental <span>→</span></button></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="courses-section" id="cursos">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Biblioteca por niveles</p>
+            <h2>Explora por curso</h2>
+            <p>
+              Cada grado presenta temas clave del currículo de biología para
+              estudiar de forma ordenada y visual.
+            </p>
+          </div>
+
+          <div class="courses-grid">
+            <a class="course-card course-green" href="#niveles">
+              <span class="course-number">01</span>
+              <span class="course-icon" aria-hidden="true">🌱</span>
+              <h3>1.º Secundaria</h3>
+              <p>Fundamentos de Biología</p>
+              <span class="course-action">Ver temas →</span>
+            </a>
+
+            <a class="course-card course-brown" href="#niveles">
+              <span class="course-number">02</span>
+              <span class="course-icon" aria-hidden="true">🌎</span>
+              <h3>2.º Secundaria</h3>
+              <p>La vida y los seres vivos</p>
+              <span class="course-action">Ver temas →</span>
+            </a>
+
+            <a class="course-card course-green" href="#niveles">
+              <span class="course-number">03</span>
+              <span class="course-icon" aria-hidden="true">🔬</span>
+              <h3>3.º Secundaria</h3>
+              <p>Célula y organización</p>
+              <span class="course-action">Ver temas →</span>
+            </a>
+
+            <a class="course-card course-brown" href="#niveles">
+              <span class="course-number">04</span>
+              <span class="course-icon" aria-hidden="true">🧬</span>
+              <h3>4.º Secundaria</h3>
+              <p>Genética y herencia</p>
+              <span class="course-action">Ver temas →</span>
+            </a>
+
+            <a class="course-card course-green" href="#niveles">
+              <span class="course-number">05</span>
+              <span class="course-icon" aria-hidden="true">🦋</span>
+              <h3>5.º Secundaria</h3>
+              <p>Genética y evolución</p>
+              <span class="course-action">Ver temas →</span>
+            </a>
+
+            <a class="course-card course-brown" href="#niveles">
+              <span class="course-number">06</span>
+              <span class="course-icon" aria-hidden="true">🧪</span>
+              <h3>6.º Secundaria</h3>
+              <p>Biología avanzada</p>
+              <span class="course-action">Ver temas →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria" class="section section-soft">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Recursos visuales</p>
+            <h2>Imágenes 3D y diagramas de apoyo</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-card">
+              <a href="celula-3d.html" aria-label="Abrir el modelo 3D de la célula eucariota animal">
+              <img
+                src="imagenes/celula-3d.png"
+                alt="Modelo 3D de una célula eucariota animal"
+              />
+              </a>
+              <figcaption>Célula eucariota animal 3D (ver)</figcaption>
+            </figure>
+
+            <figure class="gallery-card">
+              <img
+                src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=900&q=80"
+                alt="Estructura del ADN"
+              />
+              <figcaption>ADN y herencia</figcaption>
+            </figure>
+
+            <figure class="gallery-card">
+              <img
+                src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80"
+                alt="Ecosistema verde y biodiversidad"
+              />
+              <figcaption>Ecosistemas</figcaption>
+            </figure>
+
+            <figure class="gallery-card">
+              <img
+                src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=80"
+                alt="Ciencia y microscopio"
+              />
+              <figcaption>Investigación científica</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="videos" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Videos creativos</p>
+            <h2>Material audiovisual para reforzar el aprendizaje</h2>
+          </div>
+
+          <div class="video-grid">
+            <article class="video-card">
+              <div class="video-frame">
+                <video controls playsinline preload="metadata" aria-label="La célula: estructura, partes y funciones">
+                  <source src="videos/La%20C%C3%A9lula_%20estructura%2C%20partes%20y%20funciones.mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <h3>La célula: estructura y función</h3>
+              <p>Un recorrido visual para comprender los organelos y el funcionamiento celular.</p>
+            </article>
+
+            <article class="video-card">
+              <div class="video-frame">
+                <video controls playsinline preload="metadata" aria-label="Biodiversidad">
+                  <source src="videos/biodiversidad.mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <h3>Biodiversidad y ecosistemas</h3>
+              <p>Explora la variedad de seres vivos y su relación con los ecosistemas.</p>
+            </article>
+
+            <article class="video-card">
+              <div class="video-frame">
+                <video controls playsinline preload="metadata" aria-label="¿Qué es la Biología?">
+                  <source src="videos/%C2%BFQu%C3%A9%20es%20la%20Biolog%C3%ADa_.mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <h3>¿Qué es la Biología?</h3>
+              <p>Una introducción a la ciencia que estudia los seres vivos y sus procesos.</p>
+            </article>
+
+            <article class="video-card">
+              <div class="video-frame">
+                <video controls playsinline preload="metadata" aria-label="Sistema muscular: clasificación, tipos y generalidades">
+                  <source src="videos/%F0%9F%A5%87%20SISTEMA%20MUSCULAR.%20Clasificaci%C3%B3n,%20Tipos%20y%20Generalidades..mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+              <h3>Sistema muscular</h3>
+              <p>Clasificación, tipos y generalidades del sistema muscular.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="section cta-band">
+        <div class="container cta-box">
+          <div>
+            <p class="eyebrow">Recursos educativos</p>
+            <h2>Construyendo aprendizaje activo, moderno y accesible.</h2>
+          </div>
+          <a class="btn btn-primary" href="#inicio">Volver arriba</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <h3>BIO MUNDO</h3>
+          <p>Biblioteca digital de biología para estudiantes de secundaria.</p>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li>Teléfono: +591 68332479</li>
+            <li>Bolivia EL ALTO</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Proyecto del Bachillerato Técnico Humanístico</h4>
+          <p style="margin:2px 0; font-size:0.85rem; line-height:1.2;">&copy; 2026 BIOMUNDO.</p>
+           <p style="margin:2px 0; font-size:0.85rem; line-height:1.2;">Todos los derechos reservados U.E. T&eacute;cnico Human&iacute;stico Jap&oacute;n B.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="tema-modal"
+      class="ficha-modal tema-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tema-title"
+      hidden
+    >
+      <div class="ficha-backdrop" data-tema-close></div>
+
+      <div class="ficha-dialog" role="document">
+        <button
+          class="ficha-close"
+          type="button"
+          aria-label="Cerrar tema"
+          data-tema-close
+        >
+          &times;
+        </button>
+
+        <div class="ficha-head">
+          <span class="ficha-icon" id="tema-icon" aria-hidden="true">📘</span>
+          <div>
+            <p class="eyebrow" id="tema-nivel">Nivel</p>
+            <h3 id="tema-title">Tema</h3>
+          </div>
+        </div>
+
+        <p class="ficha-lead" id="tema-definicion"></p>
+
+        <div class="ficha-body" id="tema-body"></div>
+
+        <div class="ficha-foot">
+          <span class="ficha-source" id="tema-fuente"></span>
+          <button class="btn btn-primary" type="button" data-tema-close>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="topic-modal"
+      class="topic-modal"
+      aria-hidden="true"
+    >
+      <div class="topic-modal-backdrop" data-close-topic></div>
+
+      <article
+        class="topic-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="topic-modal-title"
+      >
+        <button class="modal-close" type="button" data-close-topic aria-label="Cerrar tema">
+          ×
+        </button>
+        <div class="modal-icon" id="topic-modal-icon" aria-hidden="true">🧬</div>
+        <p class="modal-kicker">Tema interactivo</p>
+        <h2 id="topic-modal-title">Tema</h2>
+        <p id="topic-modal-text"></p>
+        <div class="modal-facts" id="topic-modal-facts"></div>
+        <div class="modal-tip">
+          <strong>Tip:</strong>
+          <span id="topic-modal-tip"></span>
+        </div>
+      </article>
+    </div>
+
+    <div
+      id="notas-modal"
+      class="notas-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="notas-title"
+      hidden
+    >
+      <div class="ficha-backdrop" data-notas-close></div>
+
+      <div class="notas-dialog" role="document">
+        <div class="notas-head">
+          <h3 id="notas-title">📝 Mis notas</h3>
+          <button
+            class="ficha-close"
+            type="button"
+            aria-label="Cerrar notas"
+            data-notas-close
+          >
+            &times;
+          </button>
+        </div>
+
+        <label class="sr-only" for="notas-input">Escribe tus apuntes</label>
+        <textarea
+          id="notas-input"
+          class="notas-area"
+          placeholder="Escribe aquí tus apuntes de Biología…"
+          spellcheck="true"
+        ></textarea>
+
+        <div class="notas-foot">
+          <span class="notas-status" id="notas-status">Guardado automático</span>
+          <div class="notas-actions">
+            <button class="btn btn-secondary" type="button" id="notas-descargar">
+              Descargar
+            </button>
+            <button class="btn btn-secondary" type="button" id="notas-borrar">
+              Borrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="ficha-modal"
+      class="ficha-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="ficha-title"
+      hidden
+    >
+      <div class="ficha-backdrop" data-ficha-close></div>
+
+      <div class="ficha-dialog" role="document">
+        <button
+          class="ficha-close"
+          type="button"
+          aria-label="Cerrar ficha"
+          data-ficha-close
+        >
+          &times;
+        </button>
+
+        <div class="ficha-head">
+          <span class="ficha-icon" id="ficha-icon" aria-hidden="true">🧬</span>
+          <div>
+            <p class="eyebrow" id="ficha-eyebrow">Tema destacado</p>
+            <h3 id="ficha-title">Título</h3>
+          </div>
+        </div>
+
+        <p class="ficha-lead" id="ficha-lead"></p>
+
+        <div class="ficha-body" id="ficha-body"></div>
+
+        <div class="ficha-foot">
+          <span class="ficha-source" id="ficha-source"></span>
+          <button class="btn btn-primary" type="button" data-ficha-close>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

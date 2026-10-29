@@ -1,1 +1,0 @@
-﻿export default async function run(page){ await page.locator('[data-abrir-notas]').click(); await page.waitForTimeout(500); await page.locator('#notas-input').fill('Celula eucariota: nucleo, mitocondrias, Golgi y ribosomas.\nGenetica: ADN, ARN, mitosis y meiosis.'); await page.waitForTimeout(700); return 'ok'; }
